@@ -35,6 +35,7 @@ import org.springframework.lang.Nullable;
  * @author Oliver Gierke
  * @author Mark Paluch
  * @author Jens Schauder
+ * @author wreulicke
  */
 class QueryExecutionResultHandler {
 
@@ -45,12 +46,7 @@ class QueryExecutionResultHandler {
 	/**
 	 * Creates a new {@link QueryExecutionResultHandler}.
 	 */
-	public QueryExecutionResultHandler() {
-
-		GenericConversionService conversionService = new DefaultConversionService();
-		QueryExecutionConverters.registerConvertersIn(conversionService);
-		conversionService.removeConvertible(Object.class, Object.class);
-
+	public QueryExecutionResultHandler(GenericConversionService conversionService) {
 		this.conversionService = conversionService;
 	}
 
